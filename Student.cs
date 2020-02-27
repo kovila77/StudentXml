@@ -3,30 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace StudentsХml
 {
+
+    [XmlInclude(typeof(UndergraduateStudent)), XmlInclude(typeof(PostcgraduateStudent))]
     [Serializable]
-    public class Student
+    public abstract class Student
     {
-        public string firstName;
-        public string lastName;
-        public string faculty;
+        public string firstName = "";
+        public string secondName = "";
+        public string faculty = "";
 
         public Student() { }
-    }
-
-    [Serializable]
-    public class UndergraduateStudent : Student
-    {
-        public UndergraduateStudent() : base() { }
-    }
-
-    [Serializable]
-    public class PostcgraduateStudent : Student
-    {
-        public string diploma;
-
-        public PostcgraduateStudent() : base() { }
     }
 }

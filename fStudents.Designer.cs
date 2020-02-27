@@ -31,8 +31,13 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.создатьНовыйСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.студентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавитьМагистраToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbFirstName = new System.Windows.Forms.GroupBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.gbSecondName = new System.Windows.Forms.GroupBox();
@@ -48,7 +53,7 @@
             this.cbSearch = new System.Windows.Forms.ComboBox();
             this.lEqual = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.btPostgrStud = new System.Windows.Forms.Button();
+            this.btToPostgrStud = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.gbFirstName.SuspendLayout();
             this.gbSecondName.SuspendLayout();
@@ -78,9 +83,32 @@
             // 
             // файлToolStripMenuItem
             // 
+            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.открытьToolStripMenuItem,
+            this.сохранитьToolStripMenuItem,
+            this.создатьНовыйСписокToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
+            // 
+            // открытьToolStripMenuItem
+            // 
+            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.открытьToolStripMenuItem.Text = "Открыть";
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // создатьНовыйСписокToolStripMenuItem
+            // 
+            this.создатьНовыйСписокToolStripMenuItem.Name = "создатьНовыйСписокToolStripMenuItem";
+            this.создатьНовыйСписокToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.создатьНовыйСписокToolStripMenuItem.Text = "Создать новый список";
             // 
             // просмотрToolStripMenuItem
             // 
@@ -90,9 +118,26 @@
             // 
             // студентыToolStripMenuItem
             // 
+            this.студентыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьToolStripMenuItem,
+            this.добавитьМагистраToolStripMenuItem});
             this.студентыToolStripMenuItem.Name = "студентыToolStripMenuItem";
             this.студентыToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.студентыToolStripMenuItem.Text = "Студенты";
+            // 
+            // добавитьToolStripMenuItem
+            // 
+            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.добавитьToolStripMenuItem.Text = "Добавить бакалавра";
+            this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьБакалавраToolStripMenuItem_Click);
+            // 
+            // добавитьМагистраToolStripMenuItem
+            // 
+            this.добавитьМагистраToolStripMenuItem.Name = "добавитьМагистраToolStripMenuItem";
+            this.добавитьМагистраToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.добавитьМагистраToolStripMenuItem.Text = "Добавить магистра";
+            this.добавитьМагистраToolStripMenuItem.Click += new System.EventHandler(this.добавитьМагистраToolStripMenuItem_Click);
             // 
             // gbFirstName
             // 
@@ -113,6 +158,7 @@
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(390, 20);
             this.tbFirstName.TabIndex = 0;
+            this.tbFirstName.TextChanged += new System.EventHandler(this.tbFirstName_TextChanged);
             // 
             // gbSecondName
             // 
@@ -133,6 +179,7 @@
             this.tbSecondName.Name = "tbSecondName";
             this.tbSecondName.Size = new System.Drawing.Size(390, 20);
             this.tbSecondName.TabIndex = 0;
+            this.tbSecondName.TextChanged += new System.EventHandler(this.tbSecondName_TextChanged);
             // 
             // gbFaculty
             // 
@@ -153,6 +200,7 @@
             this.tbFaculty.Name = "tbFaculty";
             this.tbFaculty.Size = new System.Drawing.Size(390, 20);
             this.tbFaculty.TabIndex = 0;
+            this.tbFaculty.TextChanged += new System.EventHandler(this.tbFaculty_TextChanged);
             // 
             // gbDiploma
             // 
@@ -173,6 +221,7 @@
             this.tbDiploma.Name = "tbDiploma";
             this.tbDiploma.Size = new System.Drawing.Size(390, 20);
             this.tbDiploma.TabIndex = 0;
+            this.tbDiploma.TextChanged += new System.EventHandler(this.tbDiploma_TextChanged);
             // 
             // panel1
             // 
@@ -246,22 +295,22 @@
             this.tbSearch.Size = new System.Drawing.Size(187, 20);
             this.tbSearch.TabIndex = 0;
             // 
-            // btPostgrStud
+            // btToPostgrStud
             // 
-            this.btPostgrStud.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btPostgrStud.Location = new System.Drawing.Point(0, 236);
-            this.btPostgrStud.Name = "btPostgrStud";
-            this.btPostgrStud.Size = new System.Drawing.Size(410, 33);
-            this.btPostgrStud.TabIndex = 7;
-            this.btPostgrStud.Text = "Сделать магистром";
-            this.btPostgrStud.UseVisualStyleBackColor = true;
+            this.btToPostgrStud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btToPostgrStud.Location = new System.Drawing.Point(0, 236);
+            this.btToPostgrStud.Name = "btToPostgrStud";
+            this.btToPostgrStud.Size = new System.Drawing.Size(410, 33);
+            this.btToPostgrStud.TabIndex = 7;
+            this.btToPostgrStud.Text = "Сделать магистром";
+            this.btToPostgrStud.UseVisualStyleBackColor = true;
             // 
             // fStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 456);
-            this.Controls.Add(this.btPostgrStud);
+            this.Controls.Add(this.btToPostgrStud);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbSearch);
             this.Controls.Add(this.gbDiploma);
@@ -271,6 +320,7 @@
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "fStudents";
+            this.Load += new System.EventHandler(this.fStudents_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.gbFirstName.ResumeLayout(false);
@@ -311,7 +361,12 @@
         private System.Windows.Forms.ComboBox cbSearch;
         private System.Windows.Forms.Label lEqual;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Button btPostgrStud;
+        private System.Windows.Forms.Button btToPostgrStud;
+        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem создатьНовыйСписокToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem добавитьМагистраToolStripMenuItem;
     }
 }
 
