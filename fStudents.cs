@@ -71,7 +71,6 @@ namespace StudentsХml
                 удалитьТекущегоСтудентаToolStripMenuItem.Enabled = false;
                 return;
             }
-
             
             удалитьТекущегоСтудентаToolStripMenuItem.Enabled = true;
             tbsEnable = true;
@@ -196,25 +195,17 @@ namespace StudentsХml
                 switch (cbSearch.SelectedItem)
                 {
                     case "Имя":
-                        {
-                            studentHandler.SetFilter(TypesOfFilter.FirstName(tbSearch.Text.Trim()));
-                            break;
-                        }
+                        studentHandler.SetFilter(TypesOfFilter.FirstName(tbSearch.Text.Trim()));
+                        break;
                     case "Фамилия":
-                        {
-                            studentHandler.SetFilter(TypesOfFilter.SecondName(tbSearch.Text.Trim()));
-                            break;
-                        }
+                        studentHandler.SetFilter(TypesOfFilter.SecondName(tbSearch.Text.Trim()));
+                        break;
                     case "Факультет":
-                        {
-                            studentHandler.SetFilter(TypesOfFilter.Faculty(tbSearch.Text.Trim()));
-                            break;
-                        }
+                        studentHandler.SetFilter(TypesOfFilter.Faculty(tbSearch.Text.Trim()));
+                        break;
                     case "Диплом":
-                        {
-                            studentHandler.SetFilter(TypesOfFilter.Diploma(tbSearch.Text.Trim()));
-                            break;
-                        }
+                        studentHandler.SetFilter(TypesOfFilter.Diploma(tbSearch.Text.Trim()));
+                        break;
                     default:
                         MessageBox.Show("Баг");
                         break;

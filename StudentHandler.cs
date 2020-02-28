@@ -156,8 +156,8 @@ namespace StudentsХml
         }
         internal Student Prev()
         {
-            int index = indexCurStudent;
             if (students == null || students.Count == 0) return null;
+            int index = indexCurStudent;
 
             if (IsNededStud == null)
             {
@@ -204,8 +204,8 @@ namespace StudentsХml
         {
             if (students == null || students.Count == 0) return;
 
-            students.RemoveAt(indexCurStudent--);
-            if (indexCurStudent < 0) indexCurStudent = 0;
+            students.RemoveAt(indexCurStudent);
+            if (indexCurStudent > 0) indexCurStudent--;
             if (CurStudent() != null) return;
             TryFind();
         }
