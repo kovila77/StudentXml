@@ -52,7 +52,6 @@
     <Compile Include="fStudents.Designer.cs">
       <DependentUpon>fStudents.cs</DependentUpon>
     </Compile>
-    <Compile Include="Errors.cs" />
     <Compile Include="PostcgraduateStudent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -81,9 +81,16 @@ namespace StudentsХml
 
             if (IsNededStud == null) return students[indexCurStudent];
 
-            if (IsNededStud(students[indexCurStudent])) return students[indexCurStudent];
-
-            return null;
+            if (IsNededStud(students[indexCurStudent]))
+                return students[indexCurStudent];
+            else
+            {
+                TryFind();
+                if (IsNededStud(students[indexCurStudent]))
+                    return students[indexCurStudent];
+                else
+                    return null;
+            }
         }
 
         internal void MoveNext()
@@ -206,8 +213,6 @@ namespace StudentsХml
 
             students.RemoveAt(indexCurStudent);
             if (indexCurStudent > 0) indexCurStudent--;
-            if (CurStudent() != null) return;
-            TryFind();
         }
     }
 }
